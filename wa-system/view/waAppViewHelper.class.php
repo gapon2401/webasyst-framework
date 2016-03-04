@@ -45,6 +45,17 @@ class waAppViewHelper
         $theme = new waTheme($theme_id, $app_id);
         return $theme->path ? $theme->getUrl() : null;
     }
+    
+    /**
+     * @param string $theme_id
+     * @return array
+     */
+    public function themeSettings($theme_id)
+    {
+        $app_id = $this->wa->getConfig()->getApplication();
+        $theme = new waTheme($theme_id, $app_id);
+        return $theme->getSettings(true);
+    }
 
     public function pages($parent_id = 0, $with_params = true)
     {
